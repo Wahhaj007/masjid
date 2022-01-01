@@ -21,7 +21,6 @@ function PayPal() {
           amount: {
             value: price,
           },
-
         },
       ],
     });
