@@ -1,4 +1,4 @@
-.app-container {
+.app-container{
     display: flex;
     flex-direction: column;
     gap: 10px;
@@ -10,32 +10,32 @@
     width: 100%;
   }
   
-  th,
-  td {
+   th,
+    td {
     border: 1px solid #ffffff;
     text-align: left;
     padding: 8px;
     font-size: 20px;
   }
   
-  th {
+   th {
     background-color: rgb(117, 201, 250);
   }
   
-  td {
+   td {
     background-color: rgb(205, 235, 253);
   }
   
-  form {
+  .page5 form { 
     display: flex;
     gap: 5px;
   }
   
-  form td:last-child {
+   form td:last-child {
     display: flex;
     justify-content: space-evenly;
   }
   
-  form * {
+  .page5 form * {
     font-size: 28px;
   }

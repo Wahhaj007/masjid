@@ -35,6 +35,11 @@ const PaymentSchema = new mongoose.Schema({
         required: false,
         trim: true
     },
+    Email: {
+        type: String,
+        required: false,
+        trim: true
+    },
     Comment: {
         type: String,
         required: false,

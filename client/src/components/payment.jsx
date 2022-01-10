@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import PaymentForm from './paymentform';
 import {
   Button,
-  Modal
+  Modal,
+  Card
 } from "react-bootstrap";
 import Table from './table'
 function Payment() {
@@ -19,25 +20,34 @@ function Payment() {
 
   return (
     <React.Fragment>
-      <div
-        style={{ justifyContent: "center", alignItems: "center" }}>
-        <Button onClick={setNewPaymentToTrue}
-        >New Payment</Button>
-        <Table />
-      </div>
-      <Modal show={newPayment}>
-        <Modal.Header>
-          <h2>
-            New Payment
-          </h2>
+      <h1 class="ml-4 mt-3">
+        Payment
+      </h1>
+      <Card className="ml-3 mr-3">
+        <div>
+          <Button className="mt-3" onClick={setNewPaymentToTrue}
+          >New Payment</Button>
+        </div>
+        <h3 className="ml-4">Payment List</h3>
+        <div class="col-md-12 text-center">
 
-          <Button onClick={setNewPaymentToFalse} variant='outline-danger'>X</Button>
-        </Modal.Header>
-        <Modal.Body>
-          <PaymentForm />
-        </Modal.Body>
-      </Modal>
-    </React.Fragment>
+          <Table />
+        </div>
+
+        <Modal show={newPayment}>
+          <Modal.Header>
+            <h2>
+              New Payment
+            </h2>
+
+            <Button onClick={setNewPaymentToFalse} variant='outline-danger'>X</Button>
+          </Modal.Header>
+          <Modal.Body>
+            <PaymentForm />
+          </Modal.Body>
+        </Modal>
+      </Card>
+    </React.Fragment >
   )
 }
 

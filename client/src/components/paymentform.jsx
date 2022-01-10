@@ -86,18 +86,23 @@ function PaymentForm({ addTextLog }) {
         saveNewPayment(profile);
     };
 
+    // const clearForm = () => {
+    //     () => setProfile("")
+    // };
+
     return (
         <React.Fragment>
             <div className="bg-image">
 
                 <Form onSubmit={handleSubmit}
                     noValidate>
-                    <div className="ml-3 mt-3 mb-5 middle">
+                    <div>
                         <Card>
                             <h5 className="ml-3 mt-3">Reason for Payment<mark class="red">*</mark></h5>
                             <Row>
                                 <ToggleButtonGroup required type="radio" name="Description"
                                     style={{ width: "100%", height: "100%" }}
+                                    value={profile.Description}
                                     className="ml-5 mr-5"
                                     noValidate
                                 >
@@ -120,6 +125,7 @@ function PaymentForm({ addTextLog }) {
                                     style={{ width: "100%", height: "100%" }}
                                     className="ml-5 mr-5"
                                     required
+                                    value={profile.PaymentMethod}
                                     noValidate
                                 >
                                     <ToggleButton id="radio1" value={"PayPal"}
@@ -185,7 +191,8 @@ function PaymentForm({ addTextLog }) {
                             <Row>
                                 <text className="ml-5 mt-3">Amount<mark class="red">*</mark></text>
                                 <Form.Control
-                                    required min="0"
+                                    required
+                                    min="0"
                                     className="ml-5 mr-5"
                                     onKeyDown={(evt) => evt.key === '-' | evt.key === 'e' && evt.preventDefault()}
                                     placeholder="$"
@@ -201,14 +208,14 @@ function PaymentForm({ addTextLog }) {
                             <Row>
                                 <text className="ml-5 mt-3">Comments</text>
                                 <InputGroup>
-                                    <FormControl as="textarea" value={profile.Comment} aria-label="With textarea" name="Comment" aria-label="Comments" aria-describedby="Comment" type="text"
+                                    <FormControl as="textarea" value={profile.Comment} aria-label="With textarea" name="Comment" aria-label="Comments" aria-describedby="Comment"
                                         className="ml-5 mr-5"
                                         onChange={handleChange} />
                                 </InputGroup>
                             </Row>
                             <Row className="ml-2">
-                                <Col className="mt-3 ml-3 mr-2 mb-3">
-                                    <Button variant="danger" id="clear3" type="reset" value="Reset">
+                                <Col className="mt-3 ml-3 mr-2">
+                                    <Button variant="danger" id="clearForm" type="reset" onClick={() => setProfile("")}>
                                         Clear
                                     </Button>
                                 </Col>
@@ -246,16 +253,16 @@ function PaymentForm({ addTextLog }) {
                                 )}
                             </Row>
                         </Card>
-                        <div className="right ml-5">
+                        {/* <div className="right ml-5">
                             <Button
                                 onClick={() => console.log(payments)}>
                                 Payment List (Console)
                             </Button>
-                        </div>
+                        </div> */}
                     </div>
                 </Form>
             </div>
-        </React.Fragment>
+        </React.Fragment >
     );
 }
 
